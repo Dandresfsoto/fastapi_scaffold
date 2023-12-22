@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15.2
+    env_file:
+      - .env
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+    ports:
+      - ${PG_PORT_LOCAL}:${PG_PORT}
+    networks:
+      - main
+
+  app:
+    build:
+      context: .
+      args:
+        PIPENV_PYPI_MIRROR: ${PIPENV_PYPI_MIRROR}
+    env_file:
+      - .env
+    networks:
+      - main
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    depends_on:
+      - db
+
+networks:
+  main:
+
+volumes:
+  database-data:

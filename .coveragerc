@@ -1,0 +1,14 @@
+[run]
+parallel = True
+branch = True
+omit =
+	*/tests/*
+	main.py
+	app/app.py
+	app/settings.py
+	shared/instrumentation.py
+	integration_tests/*
+
+[report]
+fail_under = 75
+show_missing = True

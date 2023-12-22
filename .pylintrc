@@ -1,0 +1,27 @@
+[MASTER]
+disable=
+    missing-module-docstring,
+    missing-function-docstring,
+    missing-class-docstring,
+    too-few-public-methods,
+    no-name-in-module,
+
+extension-pkg-whitelist =
+    pydantic,
+
+ignore=
+    integration_tests,
+    iac,
+
+good-names=
+    e,
+    i,
+    by,
+    id,
+    up,
+max-line-length = 120
+
+[pylint]
+notes-rgx=(FIXME)(?!.*ABC-\d+)
+enable=fixme
+notes=[]
